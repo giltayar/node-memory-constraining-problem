@@ -15,6 +15,7 @@ Run
 ```sh
 $ npm run reproduce
 ...
+Running Node.js v10.3.0
 Press Ctrl+C to terminate
 memory: [ 'rss', 88 ] [ 'heapTotal', 36 ] [ 'heapUsed', 34 ] [ 'external', 61 ]
 memory: [ 'rss', 88 ] [ 'heapTotal', 37 ] [ 'heapUsed', 34 ] [ 'external', 91 ]
@@ -75,6 +76,9 @@ $ WAIT_BETWEEN_ALLOCS=1 npm run reproduce # dies faster
 $ ALLOC_METHOD=fileBufferAllocation WAIT_BETWEEN_ALLOCS=1 npm run reproduce # dies much much faster (for some reason...)
 ...
 ```
+
+* To change the NodeJS version running, change the first line of the `Dockerfile`.
+  For example, to use `v10.11.0`, change it to `FROM node:10.11.0`.
 
 ## Running outside of docker
 

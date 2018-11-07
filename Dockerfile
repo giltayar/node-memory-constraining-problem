@@ -6,4 +6,4 @@ COPY package*.json ./
 RUN npm ci
 COPY *.js ./
 
-CMD node index.js --max-old-space-size=${OLD_SPACE:-50}
+CMD echo Rnning Node.js `node --version` && node index.js --max-old-space-size=${OLD_SPACE:-50}
