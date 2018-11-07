@@ -55,6 +55,14 @@ You can use environment variables to customize the loop in `index.js`:
   * `fileBufferAllocation`: fs.readSync a 30mb file to a buffer
   * `stringAllocation`: allocate a string of 30mb size
 
+Examples:
+
+```sh
+ALLOC_METHOD=stringAllocation npm run reproduce # runs forever
+WAIT_BETWEEN_ALLOCS=1 npm run reproduce # dies faster
+ALLOC_METHOD=fileBufferAllocation WAIT_BETWEEN_ALLOCS=1 npm run reproduce # dies much much faster (for some reason...)
+```
+
 ## Running outside of docker
 
 Just use `npm start`.
