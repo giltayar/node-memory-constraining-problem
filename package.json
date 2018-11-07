@@ -1,0 +1,24 @@
+{
+  "name": "node-memory-constraining-problem",
+  "version": "1.0.0",
+  "description": "A repo reproducing the problem Node and the v8 GC has with Buffers and memory constrained environments",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build . -t node-memory-constraining-problem",
+    "start:docker": "docker run -ti --memory=${MEMORY_LIMIT:-70m} -e OLD_SPACE=${OLD_SPACE:-50} -e WAIT_BETWEEN_ALLOCS=${WAIT_BETWEEN_ALLOCS:-50} -e ALLOC_METHOD=${ALLOC_METHOD:-bufferAllocation} node-memory-constraining-problem",
+    "reproduce": "npm run build && npm run start:docker",
+    "start": "node index.js --max-old-space-size=${OLD_SPACE:-50}",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giltayar/node-memory-constraining-problem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giltayar/node-memory-constraining-problem/issues"
+  },
+  "homepage": "https://github.com/giltayar/node-memory-constraining-problem#readme"
+}
