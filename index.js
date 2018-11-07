@@ -10,9 +10,11 @@ const ALLOCATION_CHUNK = 30 * MB
 
 async function main(alloc) {
   console.log('Press Ctrl+C to terminate')
+
   for (;;) {
     alloc()
     console.log('memory:', ...[...Object.entries(process.memoryUsage())].map(([key, value]) => [key, Math.ceil(value / MB)]))
+
     await p(setTimeout)(parseInt(process.env.WAIT_BETWEEN_ALLOCS, 10) || 100)
   }
 }
